@@ -6,6 +6,9 @@
   path = opendbc
   url = ../../AlexandreSato/opendbc.git
   branch = brakehold
+[submodule "msgq"]
+  path = msgq
+  url = ../../commaai/msgq.git
 [submodule "rednose_repo"]
   path = rednose_repo
   url = ../../commaai/rednose.git

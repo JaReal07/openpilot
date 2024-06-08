@@ -47,13 +47,13 @@ jobs:
       timeout-minutes: ${{ ((steps.restore-scons-cache.outputs.cache-hit == 'true') && 10 || 30) }} # allow more time when we missed the scons cache
       run: |
         cd $STRIPPED_DIR
-        ${{ env.RUN }} "python selfdrive/manager/build.py"
+        ${{ env.RUN }} "python system/manager/build.py"
     - name: Run tests
       timeout-minutes: 3
       run: |
         cd $STRIPPED_DIR
         ${{ env.RUN }} "release/check-dirty.sh && \
-                        MAX_EXAMPLES=5 $PYTEST selfdrive/car"
+                        MAX_EXAMPLES=5 $PYTEST -m 'not slow' selfdrive/car"
     - name: pre-commit
       timeout-minutes: 3
       run: |
@@ -62,7 +62,7 @@ jobs:
         cp pyproject.toml $STRIPPED_DIR
         cp poetry.lock $STRIPPED_DIR
         cd $STRIPPED_DIR
-        ${{ env.RUN }} "unset PYTHONWARNINGS && SKIP=check-added-large-files pre-commit run --all && chmod -R 777 /tmp/pre-commit"
+        ${{ env.RUN }} "unset PYTHONWARNINGS && SKIP=check-added-large-files,check-hooks-apply,check-useless-excludes pre-commit run --all && chmod -R 777 /tmp/pre-commit"
 
   build:
     strategy:
@@ -116,6 +116,8 @@ jobs:
         submodules: true
     - uses: ./.github/workflows/setup-pre-commit
     - uses: ./.github/workflows/setup-with-retry
+    - name: Build openpilot
+      run: ${{ env.RUN }} "scons -j$(nproc)"
     - name: pre-commit
       timeout-minutes: 4
       run: ${{ env.RUN }} "unset PYTHONWARNINGS && pre-commit run --all && chmod -R 777 /tmp/pre-commit"
@@ -143,7 +145,7 @@ jobs:
                         $PYTEST --timeout 60 -m 'not slow' && \
                         ./selfdrive/ui/tests/create_test_translations.sh && \
                         QT_QPA_PLATFORM=offscreen ./selfdrive/ui/tests/test_translations && \
-                        ./selfdrive/ui/tests/test_translations.py"
+                        pytest ./selfdrive/ui/tests/test_translations.py"
     - name: "Upload coverage to Codecov"
       uses: codecov/codecov-action@v4
       with:

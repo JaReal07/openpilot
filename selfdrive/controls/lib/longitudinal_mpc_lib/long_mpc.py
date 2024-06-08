@@ -6,6 +6,7 @@ import numpy as np
 from cereal import log
 from openpilot.common.conversions import Conversions as CV
 from openpilot.common.numpy_fast import clip
+from openpilot.common.realtime import DT_MDL
 from openpilot.common.swaglog import cloudlog
 # WARNING: imports outside of constants will not trigger a rebuild
 from openpilot.selfdrive.modeld.constants import index_function
@@ -234,8 +235,9 @@ def gen_long_ocp():
 
 
 class LongitudinalMpc:
-  def __init__(self, mode='acc'):
+  def __init__(self, mode='acc', dt=DT_MDL):
     self.mode = mode
+    self.dt = dt
     self.solver = AcadosOcpSolverCython(MODEL_NAME, ACADOS_SOLVER_TYPE, N)
     self.reset()
     self.source = SOURCES[2]
@@ -465,7 +467,7 @@ class LongitudinalMpc:
     self.a_solution = self.x_sol[:,2]
     self.j_solution = self.u_sol[:,0]
 
-    self.prev_a = np.interp(T_IDXS + 0.05, T_IDXS, self.a_solution)
+    self.prev_a = np.interp(T_IDXS + self.dt, T_IDXS, self.a_solution)
 
     t = time.monotonic()
     if self.solution_status != 0:
