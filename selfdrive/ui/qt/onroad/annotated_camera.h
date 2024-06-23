@@ -6,12 +6,11 @@
 #include "selfdrive/ui/qt/onroad/buttons.h"
 #include "selfdrive/ui/qt/widgets/cameraview.h"
 
-class MapSettingsButton;
 class ButtonsWindow : public QWidget {
   Q_OBJECT
 
   public:
-    ButtonsWindow(QWidget* parent = 0, MapSettingsButton *map_settings_btn = 0);
+    ButtonsWindow(QWidget* parent = 0);
 
   private:
     QPushButton *helloButton;
@@ -27,8 +26,6 @@ class AnnotatedCameraWidget : public CameraWidget {
 public:
   explicit AnnotatedCameraWidget(VisionStreamType type, QWidget* parent = 0);
   void updateState(const UIState &s);
-
-  MapSettingsButton *map_settings_btn;
 
 private:
   void drawText(QPainter &p, int x, int y, const QString &text, int alpha = 255);

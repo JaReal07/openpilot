@@ -703,7 +703,6 @@ struct ControlsState @0x97ff69c53601abf1 {
 
 
   longControlState @30 :Car.CarControl.Actuators.LongControlState;
-  vPid @2 :Float32;
   vTargetLead @3 :Float32;
   vCruise @22 :Float32;  # actual set speed
   vCruiseCluster @63 :Float32;  # set speed to display in the UI
@@ -871,6 +870,7 @@ struct ControlsState @0x97ff69c53601abf1 {
   canMonoTimesDEPRECATED @21 :List(UInt64);
   desiredCurvatureRateDEPRECATED @62 :Float32;
   canErrorCounterDEPRECATED @57 :UInt32;
+  vPidDEPRECATED @2 :Float32;
 }
 
 # All SI units and in device frame
@@ -1065,6 +1065,11 @@ struct LongitudinalPlan @0xe00b5b3eba12876c {
   accels @32 :List(Float32);
   speeds @33 :List(Float32);
   jerks @34 :List(Float32);
+  aTarget @18 :Float32;
+  shouldStop @37: Bool;
+  allowThrottle @38: Bool;
+  allowBrake @39: Bool;
+
 
   solverExecutionTime @35 :Float32;
 
@@ -1081,7 +1086,6 @@ struct LongitudinalPlan @0xe00b5b3eba12876c {
   aCruiseDEPRECATED @17 :Float32;
   vTargetDEPRECATED @3 :Float32;
   vTargetFutureDEPRECATED @14 :Float32;
-  aTargetDEPRECATED @18 :Float32;
   vStartDEPRECATED @26 :Float32;
   aStartDEPRECATED @27 :Float32;
   vMaxDEPRECATED @20 :Float32;
@@ -2249,7 +2253,6 @@ struct Event {
     carControl @23 :Car.CarControl;
     carOutput @127 :Car.CarOutput;
     longitudinalPlan @24 :LongitudinalPlan;
-    uiPlan @106 :UiPlan;
     ubloxGnss @34 :UbloxGnss;
     ubloxRaw @39 :Data;
     qcomGnss @31 :QcomGnss;
@@ -2370,5 +2373,6 @@ struct Event {
     sensorEventsDEPRECATED @11 :List(SensorEventData);
     lateralPlanDEPRECATED @64 :LateralPlan;
     navModelDEPRECATED @104 :NavModelData;
+    uiPlanDEPRECATED @106 :UiPlan;
   }
 }
