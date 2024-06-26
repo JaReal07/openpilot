@@ -129,14 +129,14 @@ class CarInterface(CarInterfaceBase):
 
     # on stock Toyota this is -2.5
     ret.stopAccel = -0.4
-    ret.vEgoStopping = 0.21
-    ret.vEgoStarting = 0.21
+    ret.vEgoStopping = 0.23
+    ret.vEgoStarting = 0.23
     tune = ret.longitudinalTuning
-    tune.kpBP = [0.,]
-    tune.kpV =  [1.]
-    tune.kiBP = [0.]
-    tune.kiV =  [1.]
-    ret.stoppingDecelRate = 0.009  # reach stopping target smoothly
+    tune.kpBP = [0.0]
+    tune.kpV =  [0.0]
+    tune.kiBP = [0.0]
+    tune.kiV =  [0.5]
+    ret.stoppingDecelRate = 0.09  # reach stopping target smoothly
 
     return ret
 
