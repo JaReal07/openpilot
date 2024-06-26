@@ -116,13 +116,14 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     paramsdTemporaryError @50;
     paramsdPermanentError @119;
     actuatorsApiUnavailable @120;
+    espActive @121;
 
 
     # AleSato events
-    manualSteeringRequired @121;
-    steerAlwaysEngageSound @122;
-    steerAlwaysDisengageSound @123;
-    automaticBrakehold @124;
+    manualSteeringRequired @122;
+    steerAlwaysEngageSound @123;
+    steerAlwaysDisengageSound @124;
+    automaticBrakehold @125;
 
 
     radarCanErrorDEPRECATED @15;
@@ -202,6 +203,7 @@ struct CarState {
   espDisabled @32 :Bool;
   accFaulted @42 :Bool;
   carFaultedNonCritical @47 :Bool;  # some ECU is faulted, but car remains controllable
+  espActive @51 :Bool;
 
   # cruise state
   cruiseState @10 :CruiseState;

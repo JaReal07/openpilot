@@ -137,20 +137,12 @@
         <translation>LIMITE</translation>
     </message>
     <message>
-        <source>SPEED</source>
-        <translation>MAX</translation>
-    </message>
-    <message>
-        <source>LIMIT</source>
-        <translation>VELO</translation>
-    </message>
-    <message>
         <source>ENGINE RPM</source>
         <translation>MOTOR RPM</translation>
     </message>
     <message>
         <source>TRIP DIST</source>
-        <translation>TRIP DIST</translation>
+        <translation>DISTÂNCIA</translation>
     </message>
 </context>
 <context>
@@ -323,33 +315,6 @@
     </message>
 </context>
 <context>
-    <name>DriveStats</name>
-    <message>
-        <source>Drives</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hours</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ALL TIME</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PAST WEEK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>KM</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Miles</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DriverViewWindow</name>
     <message>
         <source>camera starting</source>
@@ -386,6 +351,29 @@
     <message>
         <source>Installing...</source>
         <translation>Instalando...</translation>
+    </message>
+</context>
+<context>
+    <name>LongitudinalPersonality</name>
+    <message>
+        <source>Driving Personality</source>
+        <translation>Temperamento de Direção</translation>
+    </message>
+    <message>
+        <source>Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake.</source>
+        <translation>Neutro é o recomendado. No modo disputa o openpilot seguirá o carro da frente mais de perto e será mais agressivo com a aceleração e frenagem. No modo calmo o openpilot se manterá mais longe do carro da frente. Em carros compatíveis, você pode alternar esses temperamentos com o botão de distância do volante.</translation>
+    </message>
+    <message>
+        <source>aggressive</source>
+        <translation>disputa</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation>neutro</translation>
+    </message>
+    <message>
+        <source>relaxed</source>
+        <translation>calmo</translation>
     </message>
 </context>
 <context>
@@ -774,20 +762,12 @@
         <translation>Mal Funcionamento da Ventoinha</translation>
     </message>
     <message>
-        <source>GPS Malfunction</source>
-        <translation>Mal Funcionamento do GPS</translation>
-    </message>
-    <message>
         <source>Gas: %1%, Steer: %2%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gear not D</source>
         <translation>A Marcha não Está em D</translation>
-    </message>
-    <message>
-        <source>Hardware malfunctioning if sky is visible</source>
-        <translation>Mal funcionamento de hardware se o céu é visível</translation>
     </message>
     <message>
         <source>Harness Relay Malfunction</source>
@@ -1099,6 +1079,14 @@ Ré</translation>
         <source>paramsd Temporary Error</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Electronic Stability Control Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ensure device has a clear view of the sky</source>
+        <translation>Certifique-se de ter vista limpa do céu</translation>
+    </message>
 </context>
 <context>
     <name>PairingPopup</name>
@@ -1158,7 +1146,7 @@ Ré</translation>
     </message>
     <message>
         <source>Remote snapshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura remota</translation>
     </message>
 </context>
 <context>
@@ -1700,10 +1688,6 @@ Isso pode levar até um minuto.</translation>
         <translation>Calmo</translation>
     </message>
     <message>
-        <source>Driving Personality</source>
-        <translation>Temperamento de Direção</translation>
-    </message>
-    <message>
         <source>An alpha version of openpilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
         <translation>Uma versão embrionária do controle longitudinal openpilot pode ser testada em conjunto com o modo Experimental, em branches que não sejam de produção.</translation>
     </message>
@@ -1714,6 +1698,10 @@ Isso pode levar até um minuto.</translation>
     <message>
         <source>End-to-End Longitudinal Control</source>
         <translation>Controle Longitudinal de Ponta a Ponta</translation>
+    </message>
+    <message>
+        <source>Driving Personality</source>
+        <translation>Temperamento de Direção</translation>
     </message>
     <message>
         <source>Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode openpilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>

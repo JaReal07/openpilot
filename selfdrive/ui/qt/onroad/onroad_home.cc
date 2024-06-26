@@ -44,12 +44,6 @@ void OnroadWindow::updateState(const UIState &s) {
     return;
   }
 
-  if (s.scene.map_on_left) {
-    split->setDirection(QBoxLayout::LeftToRight);
-  } else {
-    split->setDirection(QBoxLayout::RightToLeft);
-  }
-
   alerts->updateState(s);
   nvg->updateState(s);
 
@@ -67,11 +61,6 @@ void OnroadWindow::updateState(const UIState &s) {
     my_s->scene.prev_blinkerstatus = s.scene.blinkerstatus;
     my_s->scene.blinkerframe += my_s->scene.blinkerframe < 255? +20 : -255;
   }
-}
-
-void OnroadWindow::mousePressEvent(QMouseEvent* e) {
-  // propagation event to parent(HomeWindow)
-  QWidget::mousePressEvent(e);
 }
 
 void OnroadWindow::offroadTransition(bool offroad) {
